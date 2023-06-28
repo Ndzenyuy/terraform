@@ -1,11 +1,11 @@
 terraform {
-  /*cloud {
+  cloud {
     organization = "Sparxinc"
 
     workspaces {
       name = "Provisionners"
     }
-  }*/
+  }
 
   required_providers {
     aws = {
