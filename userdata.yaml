@@ -2,5 +2,5 @@
 packages: 
   - httpd
 runcmd:
-  - systenctl start httpd
+  - systemctl start httpd
   - sudo sytemctl enable httpd

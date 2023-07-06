@@ -1,4 +1,5 @@
 terraform {
+  required_version = "~> 1.5.0"
   cloud {
     organization = "Sparxinc"
 
@@ -21,8 +22,8 @@ data "aws_vpc" "main" {
 }
 
 data "template_file" "user_data" {
-  template = file("./userdata.yaml")
-}
+  template = file(".//userdata.yaml")
+  }
 
 provider "aws" {
   # Configuration options
@@ -81,7 +82,7 @@ resource "aws_security_group" "sg_my_server" {
 resource "aws_instance" "my_server" {
   ami                    = "ami-09988af04120b3591"
   instance_type          = local.aws_instanceType
-  key_name               = aws_key_pair.deployer.key_name
+  //key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.sg_my_server.id]
   user_data              = data.template_file.user_data.rendered
   tags = {
